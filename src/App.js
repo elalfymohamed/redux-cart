@@ -1,22 +1,16 @@
 // components
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
-// items
-import cartItems from "./cart-items";
 // redux stuff
 import { createStore } from "redux";
 import reducer from "./reducer";
 // react-redux - provider - wraps app  , connect - used in components
 import { Provider } from "react-redux";
 
-// initial store
-const initialStore = {
-  cart: cartItems,
-  totla: 0,
-  amount: 0,
-};
-
-const store = createStore(reducer, initialStore);
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 function App() {
   // cart setup
@@ -24,7 +18,7 @@ function App() {
   return (
     <Provider store={store}>
       <Navbar />
-      <CartContainer cart={cartItems} />
+      <CartContainer />
     </Provider>
   );
 }
