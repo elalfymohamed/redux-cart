@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import {
   INCREASE,
   DECREASE,
-  REMOVE,
+  // REMOVE,
   TOGGLE_AMOUNT,
   removeItem,
 } from "../actions";
